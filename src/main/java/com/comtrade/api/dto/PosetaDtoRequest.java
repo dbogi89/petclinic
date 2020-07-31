@@ -1,24 +1,22 @@
-package com.comtrade.entity;
+package com.comtrade.api.dto;
 
-import lombok.*;
+import com.comtrade.entity.Ljubimac;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Service;
 
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
-public class Poseta extends BazniEntitet{
+public class PosetaDtoRequest {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate datum_posete;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Ljubimac ljubimac;
     private String opis;
 }

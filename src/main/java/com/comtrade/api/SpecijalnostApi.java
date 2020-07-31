@@ -1,5 +1,7 @@
 package com.comtrade.api;
 
+import com.comtrade.api.dto.VeterinarDtoRequest;
+import com.comtrade.api.dto.VeterinarDtoResponse;
 import com.comtrade.entity.Specijalnost;
 import com.comtrade.service.SpecijalnostService;
 import lombok.AllArgsConstructor;
@@ -25,7 +27,7 @@ public class SpecijalnostApi {
 
     @PostMapping("")
     public Specijalnost save(@RequestBody Specijalnost specijalnost){
-        LOGGER.info("Vrednost koja je stigla je "+specijalnost.getNazivSpecijalnosti());
+        LOGGER.error("Vrednost koja je stigla je "+specijalnost.getNazivSpecijalnosti());
         return specijalnostService.save(specijalnost);
     }
     @GetMapping("")
@@ -49,6 +51,10 @@ public class SpecijalnostApi {
             return new ResponseEntity<>("podatak nije obrisan", HttpStatus.BAD_REQUEST);
         }
 
+    }
+    @PostMapping("/{id}")
+    public VeterinarDtoResponse create(@PathVariable Long id, @RequestBody VeterinarDtoRequest veterinarDtoRequest){
+        return specijalnostService.create(id, veterinarDtoRequest);
     }
 
 }
