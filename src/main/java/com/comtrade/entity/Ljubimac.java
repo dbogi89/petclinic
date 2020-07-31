@@ -1,6 +1,6 @@
 package com.comtrade.entity;
 
-import javafx.geometry.Pos;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
