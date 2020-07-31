@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 public class LjubimacApi {
     private final LjubimacServis ljubimacServis;
-    Logger logger = LoggerFactory.getLogger(LjubimacApi.class);
+
     @PostMapping("")
     public ResponseEntity<?> save(@RequestBody LjubimacTip ljubimacTip){
         try {

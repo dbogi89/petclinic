@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SpecijalnostApi {
     private SpecijalnostService specijalnostService;
-    private  final Logger logger = LoggerFactory.getLogger(SpecijalnostApi.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(SpecijalnostApi.class);
     @GetMapping("/nzm")
     public List<String>getALl(){
         return Arrays.asList("Dejan","Milos","Ivana","Nikola");
@@ -25,7 +25,7 @@ public class SpecijalnostApi {
 
     @PostMapping("")
     public Specijalnost save(@RequestBody Specijalnost specijalnost){
-        logger.info("Vrednost koja je stigla je "+specijalnost.getNazivSpecijalnosti());
+        LOGGER.info("Vrednost koja je stigla je "+specijalnost.getNazivSpecijalnosti());
         return specijalnostService.save(specijalnost);
     }
     @GetMapping("")
