@@ -7,13 +7,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
-@RequestMapping("/api/v1/specijalnosti")
+@RequestMapping("api/v1/specijalnosti")
 @RestController
 @AllArgsConstructor
 public class SpecijalnostApi {
     private SpecijalnostService specijalnostService;
+    @GetMapping("/nzm")
+    public List<String>getALl(){
+        return Arrays.asList("Dejan","Milos","Ivana","Nikola");
+    }
 
     @PostMapping("")
     public Specijalnost save(@RequestBody Specijalnost specijalnost){
