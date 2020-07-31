@@ -11,4 +11,6 @@ import java.util.List;
 public interface LjubimacRepository extends JpaRepository<Ljubimac, Long> {
     @Query("select lj from Ljubimac lj inner join lj.vlasnik v where v.id = :idVlasnik")
     List<Ljubimac> findByLjubimac(Long idVlasnik);
+    @Query(value = "INSERT INTO veterinar_ljubimac(id_veterinar, id_ljubimac) VALUES (?1,?2) ", nativeQuery = true)
+    void insert(Long id, Long id1);
 }
