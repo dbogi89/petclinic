@@ -10,6 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface VlasnikRepository extends JpaRepository<Vlasnik, Long> {
-    @Query("select v from Vlasnik v inner join v.ljubimci lj where v.id = :idVlasnik")
-    List<Vlasnik> findByLjubimac(Long idVlasnik);
+
 }

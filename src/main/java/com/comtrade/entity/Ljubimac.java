@@ -1,10 +1,7 @@
 package com.comtrade.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,6 +12,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Ljubimac extends BazniEntitet {
     private String ime;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -23,7 +21,12 @@ public class Ljubimac extends BazniEntitet {
     private Vlasnik vlasnik;
     @OneToMany(mappedBy = "ljubimac", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Poseta> posete = new HashSet<>();
+    @ManyToMany(mappedBy = "ljubimaci", fetch = FetchType.LAZY)
+    private Set<Veterinar>veterinars= new HashSet<>();
 
+    public void add(Veterinar veterinar){
+
+    }
 
 
 }
